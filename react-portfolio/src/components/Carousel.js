@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 
 import drinkology from "../assets/images/drinkology.png";
 import Todolist from "../assets/images/To-do-list.png";
+import Workday from "../assets/images/workday.png";
 
 
 class Carousel extends React.Component {
@@ -15,7 +16,8 @@ class Carousel extends React.Component {
         {
           id: 0,
           title: "Drinkology",
-          subTitle: "Cocktail Receipe look up",
+          subTitle:
+            "Full stack application, created to allow end users to look up cocktail recipes.",
           imgSrc: drinkology,
           link: "https://damp-peak-42313.herokuapp.com/",
           selected: false,
@@ -23,12 +25,21 @@ class Carousel extends React.Component {
         {
           id: 1,
           title: "To Do List",
-          subTitle: "Keeping you Productive",
+          subTitle:
+            "To do list application, created with Node.js, Express and EJS.",
           imgSrc: Todolist,
           link: "https://guarded-cliffs-73920.herokuapp.com/",
           selected: false,
         },
-    
+        {
+          id: 2,
+          title: "Workday",
+          subTitle:
+            "Workday scheduler was created to provide employees a way to manage their time effectively. ",
+          imgSrc: Workday,
+          link: "https://mayorgak.github.io/workday-scheduler/",
+          selected: false,
+        },
       ],
     };
   }
@@ -50,7 +61,7 @@ class Carousel extends React.Component {
   };
 
   makeItems = (items) => {
-    return items.map(item => {
+    return items.map((item) => {
       return (
         <Card
           item={item}
@@ -61,15 +72,15 @@ class Carousel extends React.Component {
     });
   };
 
-render () {
-  return (
-    <Container fluid={true}>
-      <Row className="justify-content-around">
-        {this.makeItems(this.state)}
-      </Row>
-    </Container>
-  );
-}
+  render() {
+    return (
+      <Container fluid={true}>
+        <Row className="justify-content-around">
+          {this.makeItems(this.state.items)}
+        </Row>
+      </Container>
+    );
+  }
 }
 
 

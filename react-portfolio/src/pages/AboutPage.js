@@ -14,7 +14,7 @@ function AboutPage(props) {
       <Container lg={12}>
         <Row className="justify-content-center py-5 ">
           <div className="right">
-            <img clasName="" src={kristen} alt="kristen" />
+            <img className="" src={kristen} alt="kristen" />
           </div>
           <Col md={8} sm={12}>
             <h5 className="display-3 font-weight-bolder">About Me</h5>
