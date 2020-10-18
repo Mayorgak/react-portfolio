@@ -23,9 +23,7 @@ function HomePage(props) {
         </div>
 
 
-        <div>
-          <ContactPage />
-        </div>
+        
       </>
     );
 }

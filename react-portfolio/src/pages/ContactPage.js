@@ -1,53 +1,96 @@
-import React from 'react'
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
+import React, { useState } from "react";
 
-class ContactPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      message: "",
-      disabled: false,
-      emailSent: null,
-    };
-  }
+import { validateEmail } from "../utils/helpers";
 
-  render() {
-    return (
-      <>
-   
+function ContactForm() {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-        <Container lg={12}>
-          <Row className="justify-content-center py-5 ">
-            <div className="right">
+  const [errorMessage, setErrorMessage] = useState("");
+  const { name, email, message } = formState;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!errorMessage) {
+      console.log("Submit Form", formState);
+    }
+  };
+
+  const handleChange = (e) => {
+    if (e.target.name === "email") {
+      const isValid = validateEmail(e.target.value);
+      if (!isValid) {
+        setErrorMessage("Your email is invalid.");
+      } else {
+        setErrorMessage("");
+      }
+    } else {
+      if (!e.target.value.length) {
+        setErrorMessage(`${e.target.name} is required.`);
+      } else {
+        setErrorMessage("");
+      }
+    }
+    if (!errorMessage) {
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+      console.log("Handle Form", formState);
+    }
+  };
+
+  return (
+    <>
+      <h4 className="display-3 font-weight-bolder">Contact Me</h4>
+      <section>
+        <h1 className="display-3 font-weight-bolder" data-testid="h1tag"></h1>
+
+        <form id="contact-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
               
+              type="text"
+              name="name"
+              defaultValue={name}
+              onBlur={handleChange}
+            />
+          </div>
+          <div form-group>
+            <label htmlFor="email">Email address:</label>
+            <input
+              type="email"
+              name="email"
+              defaultValue={email}
+              onBlur={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="message">Message:</label>
+            <textarea
+              name="message"
+              rows="5"
+              defaultValue={message}
+              onBlur={handleChange}
+            />
+          </div>
+          {errorMessage && (
+            <div>
+              <p className="error-text">{errorMessage}</p>
             </div>
-            <Col md={8} sm={12}>
-              <h5 className="display-4 font-weight-bolder">Contact Me</h5>
-              <p>
-                I'm an aspirging Full Stack Web Developer currently attending
-                the University of Central Florida Coding Bootcamp. I'm a
-                passionate developer who enjoys being challenged and growing in
-                this dynamic tech industry. Looking to bring my attention to
-                detail and technical skills to a company to become a valuable
-                asset.
-              </p>
-
-              <p>
-                When I'm not coding the day away, I like to spend time with my
-                dog and family.{" "}
-                
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </>
-    );
-  }
+          )}
+          <button
+            className="btn btn-primary"
+            data-testid="button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+    </>
+  );
 }
 
-export default ContactPage
+export default ContactForm;
