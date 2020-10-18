@@ -1,11 +1,12 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Card from "../components/Card";
-import Carousel from '../components/Carousel';
+// import Carousel from '../components/Carousel';
 import CardInfo from "../components/CardInfo";
 
 import AboutPage from './AboutPage';
 import ContactPage from "./ContactPage";
+// import portfolio from '../components/Card';
 
 
 
@@ -18,12 +19,14 @@ function HomePage(props) {
           <AboutPage />
         </div>
 
-        <div >
-          <CardInfo />
+        <div>
+          <AboutPage />
         </div>
 
-
-        
+        <div>
+          <Card />
+         
+        </div>
       </>
     );
 }

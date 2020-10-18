@@ -1,33 +1,18 @@
+import React from "react";
+import { useSpring, animated } from "react-spring";
 
-import React from 'react'
-import Card from '../components/Card'
-import drinkology from "../assets/images/drinkology.png";
-import todolist from "../assets/images/To-do-list.png";
-import Button  from "react-bootstrap/Button"
+function CardInfo(props) {
+  const style = useSpring({ opacity: 1, from: { opacity: 0 } });
 
-
-
-
-class CardInfo extends React.Component{
-    render ()
-{
-   return (
-     <div className="container-fluid d-flex justify-content-center">
-       <div className="row">
-         <div className="col-md-4">
-           <Card imgsrc={drinkology} />
-         </div>
-         <div className="col-md-4">
-           <Card imgsrc={todolist} />
-         </div>
-         <div className="col-md-4">
-           <Card imgsrc={drinkology} />
-         </div>
-         
-       </div>
-     </div>
-   );
-}    
+  return (
+    <animated.div className="g-card-info" style={style}>
+      <p className="g-card-title">{props.title}</p>
+      <p className="g-card-sub-title">{props.subTitle}</p>
+      <a href={props.link} target="_blank" rel="noopener noreferrer">
+        View
+      </a>
+    </animated.div>
+  );
 }
 
 export default CardInfo;

@@ -1,16 +1,10 @@
-import React from 'react'
-import Card from "react-bootstrap/card";
-import Carousel from '../components/Carousel';
-import Button from "react-bootstrap/Button";
+import React from 'react';
+import CardInfo from '../components/CardInfo';
 
 
-
-
-
-function portfolio(props) {
+function card(props) {
     return (
-      <>
-        <Card style={{ width: "20rem" }}>
+      /* <Card style={{ width: "20rem" }}>
           <Card.Img variant="top" src="https://picsum.photos/100/100" />
           <Card.Body>
             <Card.Title classsName="text-center">Card Title</Card.Title>
@@ -20,12 +14,22 @@ function portfolio(props) {
             </Card.Text>
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>
-        </Card>
+        </Card> */
 
-     
-        
-      </>
+      <div
+        className="d-inline-block g-card"
+        onClick={(e) => props.click(props.item)}
+      >
+        <img className="" src={props.item.imgSrc} alt={props.item.imgSrc} />
+        {props.item.selected && (
+          <CardInfo
+            title={props.item.title}
+            subTitle={props.item.subTitle}
+            link={props.item.link}
+          />
+        )}
+      </div>
     );
 }
 
-export default portfolio;
+export default card;
