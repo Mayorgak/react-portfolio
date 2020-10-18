@@ -10,9 +10,10 @@ import './App.css';
 
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import AboutPage from './pages/AboutPage';
+import Resume from './pages/Resume';
 import ContactPage from './pages/ContactPage';
 
+import { FaLaptopCode } from "react-icons/fa";
 
 
 class App extends React.Component {
@@ -29,10 +30,10 @@ class App extends React.Component {
       home: {
         title: "Kristen Mayorga ",
         subTitle: "Full Stack Developer",
-        text: "Checkout my projects below",
+        text: "",
       },
-      About: {
-        title: "About Me",
+        Resume: {
+        title: "Resume",
       },
       Contact: {
         title: "Lets Connect",
@@ -46,8 +47,7 @@ class App extends React.Component {
       <Container className="p-0" fluid={true}>
         <Navbar className="border-bottom" bg="transparent" expand="lg">
           <Navbar.Brand>
-            KM
-            <Lightning />
+            <FaLaptopCode size={40} />
           </Navbar.Brand>
           <Navbar.Toggle className="border-0" aria-controls="navbar-toggle" />
           <Navbar.Collapse id="navbar-toggle">
@@ -55,8 +55,8 @@ class App extends React.Component {
               <Link className="nav-link" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/about">
-                About
+              <Link className="nav-link" to="/resume">
+                Resume
               </Link>
               <Link className="nav-link" to="/contact">
                 Contact
@@ -76,14 +76,14 @@ class App extends React.Component {
             />
           )}
         />
-        <Route
-          path="/about"
-          render={() => <AboutPage title={this.state.about} />}
-        />
+          <Route
+          path="/resume"
+          render={() => <Resume title={this.state.resume} />}
+        /> 
         <Route
           path="/contact"
           render={() => <ContactPage title={this.state.contact} />}
-        />
+        /> 
 
         <Footer />
       </Container>

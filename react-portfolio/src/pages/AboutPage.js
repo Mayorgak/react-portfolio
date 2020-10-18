@@ -4,8 +4,9 @@ import kristen from '../assets/images/Kristen.png';
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import App from "../pages/AboutPage.css"
+import  "../pages/AboutPage.css"
 import ReactTypingEffect from "react-typing-effect";
+
 // import { Container } from "react-bootstrap";
 
 function AboutPage(props) {
@@ -16,7 +17,7 @@ function AboutPage(props) {
             <img clasName="" src={kristen} alt="kristen" />
           </div>
           <Col md={8} sm={12}>
-            <h1 className="display-1 font-weight-bolder">About Me</h1>
+            <h5 className="display-4 font-weight-bolder">About Me</h5>
             <p>
               I'm an aspirging Full Stack Web Developer currently attending the
               University of Central Florida Coding Bootcamp. I'm a passionate
@@ -34,6 +35,7 @@ function AboutPage(props) {
           </Col>
         </Row>
       </Container>
+      
     );
 }
 
