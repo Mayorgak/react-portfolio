@@ -17,7 +17,7 @@ function AboutPage(props) {
             <img clasName="" src={kristen} alt="kristen" />
           </div>
           <Col md={8} sm={12}>
-            <h5 className="display-4 font-weight-bolder">About Me</h5>
+            <h5 className="display-3 font-weight-bolder">About Me</h5>
             <p>
               I'm an aspirging Full Stack Web Developer currently attending the
               University of Central Florida Coding Bootcamp. I'm a passionate

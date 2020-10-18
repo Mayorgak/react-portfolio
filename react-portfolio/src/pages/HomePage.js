@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import Card from "../components/Card";
 import Carousel from '../components/Carousel';
 import CardInfo from "../components/CardInfo";
-import '../pages/HomePage.css'
+
 import AboutPage from './AboutPage';
 import ContactPage from "./ContactPage";
 
